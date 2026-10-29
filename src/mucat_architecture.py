@@ -110,7 +110,7 @@ class EvidentialDirichletHead(nn.Module):
 
 class MuCATClassifier(nn.Module):
     """
-    Full MuCAT Architecture (mDeBERTa-v3-base + HAP + LAG FiLM + EDL + AuxHead)
+    MuCAT task head (HAP + LAG FiLM + EDL + AuxHead) operating on externally supplied backbone hidden states.
     Target classes (K = 6): Modern Standard Arabic (ar), Algerian Arabic (arq),
     Kabyle (kab), Chaoui (shy), French (fr), English (en).
     """
