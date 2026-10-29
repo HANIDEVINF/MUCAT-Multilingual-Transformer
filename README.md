@@ -80,9 +80,9 @@ Project notes describe a controlled comparison on Tatoeba (`ar`, `arq`, `kab`, `
 > An earlier version of this benchmark reported an artificial 3.88% test accuracy for XLM-RoBERTa and 23.74% for standard mDeBERTa due to an  dictionary key-permutation bug in the evaluation script where test splits were evaluated against an unsynchronized label index map. When re-evaluated with verified, aligned label mappings under the exact same test splits:
 > - **XLM-RoBERTa-base baseline:** achieves **81.40%** test accuracy.
 > - **Standard mDeBERTa-v3:** achieves **89.60%** test accuracy.
-> - **MuCAT (Proposed):** achieves **98.20%** test accuracy (+8.60% absolute gain over standard mDeBERTa-v3), driven by Language-Aware FiLM Gating (LAG) and Hierarchical Attention Pooling (HAP) on low-resource dialectal and code-switched inputs.
+> - **MuCAT (Proposed):** the project README reports **98.20%** test accuracy (+8.60 percentage points relative to its reported standard mDeBERTa-v3 baseline). This result is not independently reproduced from the current public checkout; the causal contribution of each added module requires reproducible ablation runs.
 >
-> **Uncertainty Quantification Note:** MuCAT provides closed-form **epistemic uncertainty estimation** (evidential Dirichlet vacuity  = K / \sum lpha$) in a single forward pass without requiring costly Monte Carlo Dropout (10–50 passes) or post-hoc validation-set temperature scaling. Empirical probability calibration (ECE & reliability diagrams) is distinguished from epistemic vacuity.
+> **Uncertainty quantification note:** the custom head returns Dirichlet concentration parameters and a vacuity-style score `u = K / S` in one forward pass. This mathematical output is not, by itself, proof of empirical calibration; evaluate calibration on held-out data (for example, ECE, Brier score and reliability diagrams).
 
 ---
 
