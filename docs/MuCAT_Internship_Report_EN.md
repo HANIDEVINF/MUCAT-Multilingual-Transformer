@@ -21,6 +21,6 @@ Three models are trained on the same Tatoeba 6-language dataset with the exact s
 
 | Model | Val Accuracy | Test Accuracy | Native Uncertainty |
 | :--- | :---: | :---: | :--- |
-| **XLM-RoBERTa-base (baseline)** | 97.75% | 3.88% | No (classic softmax) |
-| **mDeBERTa-v3 standard (ablation)** | 98.15% | 23.74% | No (classic softmax) |
+| **XLM-RoBERTa-base (baseline)** | 97.75% | **Invalid historical result — label-map bug** | No (classic softmax) |
+| **mDeBERTa-v3 standard (ablation)** | 98.15% | **Invalid historical result — label-map bug** | No (classic softmax) |
 | **MuCAT (proposed)** | **98.26%** | **98.20%** | **Yes — native, calibrated (Dirichlet)** |
