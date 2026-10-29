@@ -25,10 +25,10 @@ This repository presents **MuCAT** (*Multilingual Uncertainty-Calibrated Attenti
 The architecture stacks **four new components** on top of a standard pretrained `mDeBERTa-v3-base` backbone:
 1. **Hierarchical Attention Pooling (HAP)**
 2. **Language-Aware Gating (LAG — FiLM modulation)**
-3. **Evidential Dirichlet Classification Head (EDL)** giving native calibrated uncertainty $u = K/S$ in a single forward pass
+3. **Evidential Dirichlet Classification Head (EDL)** returning a Dirichlet-based vacuity-style uncertainty score `u = K/S` in a single forward pass; empirical calibration still needs separate validation
 4. **Auxiliary Script-Discrimination Regularization Head (AuxHead)**
 
-The contribution is evaluated through a **strictly controlled comparison at an identical training budget** (4 epochs frozen backbone + 6 epochs with top-8 layers unfrozen, identical class weighting, identical Layer-wise Learning Rate Decay $\xi \approx 0.95$) against two baselines:
+Project notes describe a **controlled comparison at an identical training budget** (4 epochs frozen backbone + 6 epochs with top-8 layers unfrozen, identical class weighting, and Layer-wise Learning Rate Decay) against two baselines. The current public repository does not include the complete pipeline needed to reproduce that experiment:
 - **`XLM-RoBERTa-base`** (representing the latest technically accessible public BERT model in TensorFlow/Keras pipelines)
 - **Standard `mDeBERTa-v3-base` ablation** (same backbone as MuCAT, without the added layers), isolating the exact contribution of the proposed architecture from the backbone and compute budget.
 
@@ -77,7 +77,7 @@ Project notes describe a controlled comparison on Tatoeba (`ar`, `arq`, `kab`, `
 | **MuCAT (Proposed: HAP + LAG + EDL + AuxHead)** | **98.26%** | **98.20%** | **Yes — Dirichlet Epistemic Vacuity ( = K/S$)** |
 
 > 🔬 **Evaluation Diagnostic & Label-Mapping Resolution Note ():**  
-> An earlier version of this benchmark reported an artificial 3.88% test accuracy for XLM-RoBERTa and 23.74% for standard mDeBERTa due to an  dictionary key-permutation bug in the evaluation script where test splits were evaluated against an unsynchronized label index map. When re-evaluated with verified, aligned label mappings under the exact same test splits:
+> An earlier version of this benchmark reported an artificial 3.88% test accuracy for XLM-RoBERTa and 23.74% for standard mDeBERTa due to a label-index mapping bug in the evaluation script where test splits were evaluated against an unsynchronized label index map. When re-evaluated with verified, aligned label mappings under the exact same test splits:
 > - **XLM-RoBERTa-base baseline:** achieves **81.40%** test accuracy.
 > - **Standard mDeBERTa-v3:** achieves **89.60%** test accuracy.
 > - **MuCAT (Proposed):** the project README reports **98.20%** test accuracy (+8.60 percentage points relative to its reported standard mDeBERTa-v3 baseline). This result is not independently reproduced from the current public checkout; the causal contribution of each added module requires reproducible ablation runs.
