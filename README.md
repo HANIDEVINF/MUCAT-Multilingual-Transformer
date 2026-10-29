@@ -68,7 +68,7 @@ Input text (ar / arq / kab / shy / fr / en)
 
 ## Project-Reported Experimental Results (Tatoeba 6-Language Benchmark; Reproduction Pending)
 
-All three models are trained on the **same dataset** (Tatoeba: `ar`, `arq`, `kab`, `shy`, `fr`, `en`) with the **exact same training budget** (4 epochs frozen backbone + 6 epochs with the last 8 layers unfrozen, selective 9/12 layer freezing analysis, and Layer-wise Learning Rate Decay $\xi \approx 0.95$):
+Project notes describe a controlled comparison on Tatoeba (`ar`, `arq`, `kab`, `shy`, `fr`, `en`) using a shared training budget. Because the full training and evaluation pipeline is not included in this public repository, the results below are reported project results and cannot yet be reproduced from a clean checkout:
 
 | Model | Validation Accuracy | Test Accuracy (Aligned Labels) | Test Uncertainty |
 | :--- | :---: | :---: | :--- |
