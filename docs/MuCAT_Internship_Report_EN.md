@@ -1,5 +1,7 @@
 # MuCAT — Internship Report (CERIST – UbiSys, DTISI)
 
+> **Historical-draft correction:** this report contains an earlier evaluation table whose XLM-RoBERTa and standard mDeBERTa test results (3.88% and 23.74%) were later identified in the project README as arising from a label-index mapping bug. Those two figures must not be cited as valid benchmark results. The README reports corrected values of 81.40% and 89.60%, respectively, but the current public checkout does not contain the full end-to-end pipeline needed to reproduce the corrected table. Treat all reported metrics as pending independent reproduction. Confirm CERIST sharing permissions before expanding the public implementation.
+
 **Title:** MuCAT: Multilingual Uncertainty-Calibrated Attention Transformer — Literature review, architecture, and controlled experimental comparison  
 **Internship:** CERIST, Centre de Recherche sur l'Information Scientifique et Technique — UbiSys Team, DTISI  
 **Supervisor:** Nadir Bouchama, UbiSys Team Leader  
