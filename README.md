@@ -8,7 +8,7 @@
 **Supervisor:** Nadir Bouchama, UbiSys Team Leader  
 
 [![Interactive Studio](https://img.shields.io/badge/Interactive_Demo-MuCAT_Attention_%26_Dirichlet_Studio-8b5cf6?style=for-the-badge)](https://ais-pre-4br5xw5mjzlfdkdvyz7xyq-909472834222.europe-west2.run.app/lab/mucat-transformer)
-[![Stack](https://img.shields.io/badge/Backbone-mDeBERTa--v3_%7C_Evidential_Dirichlet_%7C_FiLM_Gating-06b6d4?style=for-the-badge)](https://github.com/HANIDEVINF/MUCAT-Multilingual-Transformer)
+[![Stack](https://img.shields.io/badge/Public_Code-MuCAT_Task_Head_Modules-06b6d4?style=for-the-badge)](https://github.com/HANIDEVINF/MUCAT-Multilingual-Transformer)
 
 ---
 
@@ -22,7 +22,7 @@ This repository presents **MuCAT** (*Multilingual Uncertainty-Calibrated Attenti
 - **French** (`fr`)
 - **English** (`en`)
 
-The architecture stacks **four new components** on top of a standard pretrained `mDeBERTa-v3-base` backbone:
+The research design describes four custom components intended to sit on top of `mDeBERTa-v3-base`. The public Python module receives backbone hidden states as inputs; backbone loading, tokenization, training and end-to-end evaluation orchestration are not included in this repository:
 1. **Hierarchical Attention Pooling (HAP)**
 2. **Language-Aware Gating (LAG — FiLM modulation)**
 3. **Evidential Dirichlet Classification Head (EDL)** returning a Dirichlet-based vacuity-style uncertainty score `u = K/S` in a single forward pass; empirical calibration still needs separate validation
@@ -52,7 +52,7 @@ Input text (ar / arq / kab / shy / fr / en)
    3 – Evidential Dirichlet Head (EDL)  +  4 – AuxHead
                     │
                     ▼
-   Prediction (class) + calibrated uncertainty u = K/S
+   Prediction (class) + Dirichlet vacuity-style score u = K/S (empirical calibration not yet established)
 ```
 
 ### Detail of Added Layers and Technical Justification
