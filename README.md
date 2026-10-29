@@ -1,5 +1,7 @@
 # MuCAT — Multilingual Uncertainty-Calibrated Attention Transformer
 
+> **Reproducibility and sharing status (read first):** the public code currently provides the custom attention/gating/evidential-head modules over hidden states supplied by a caller. It does not include the complete pretrained-backbone loading, tokenizer/data preparation, training and end-to-end evaluation pipeline needed to reproduce the reported table from a fresh checkout. The 98.20% figure below is a project-reported result, not independently reproduced from this public repository. Confirm research-sharing permissions with CERIST before publishing additional code, data, weights or detailed methods.
+
 **Literature Review, Architecture, and Controlled Experimental Comparison for Low-Resource & Maghreb NLP**  
 **Institution:** CERIST — Centre de Recherche sur l'Information Scientifique et Technique (UbiSys Team, DTISI)  
 **Author:** Hani Ghena (M.Sc. in Artificial Intelligence @ USTHB 2025–2027 · B.Sc. Computer Science @ USTHB 2022–2025 · CERIST AI Research Intern)  
@@ -64,7 +66,7 @@ Input text (ar / arq / kab / shy / fr / en)
 
 ---
 
-## Controlled Experimental Results (Tatoeba 6-Language Benchmark)
+## Project-Reported Experimental Results (Tatoeba 6-Language Benchmark; Reproduction Pending)
 
 All three models are trained on the **same dataset** (Tatoeba: `ar`, `arq`, `kab`, `shy`, `fr`, `en`) with the **exact same training budget** (4 epochs frozen backbone + 6 epochs with the last 8 layers unfrozen, selective 9/12 layer freezing analysis, and Layer-wise Learning Rate Decay $\xi \approx 0.95$):
 
